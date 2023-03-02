@@ -5,4 +5,7 @@ class DirectorsController < ApplicationController
     render({:template => "director_templates/index.html.erb"})
   end
   
+  def wisest
+    render({:template => "director_templates/eldest.html.erb"})
+  end
 end
