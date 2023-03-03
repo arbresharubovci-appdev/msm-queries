@@ -33,10 +33,9 @@ class DirectorsController < ApplicationController
   def movies_details
     #Parameters: {"id"=>"movies"}
     the_id_movie = params.fetch("film_id")
-    id = the_id_movie.id.to_i 
-    @the_movie = Movie.where({:id => id }).at(0)
+    @the_movie = Movie.where({:id => the_id_movie }).at(0)
   
-    render({:template => "director_templates/movies.html.erb"})
+    render({:template => "director_templates/movies_details.html.erb"})
   end
 
 end
