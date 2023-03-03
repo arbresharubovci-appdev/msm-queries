@@ -24,6 +24,7 @@ class DirectorsController < ApplicationController
   end
 
   def movies
+    @the_movie=Movie.all
     render({:template => "director_templates/movies.html.erb"})
   end
 
