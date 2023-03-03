@@ -1,0 +1,20 @@
+<h1>List of all movies</h1>
+
+
+  
+<table border="1" >
+<% @the_movie.each do |a_film| %>
+<tr>
+<td><%= a_film.id %></td>
+<td>
+<img src="http://robohash.org/<%= a_film.name %>">
+</td>
+<td><%= a_film.name %></td>
+<td><%= a_film.dob %></td>
+<td>
+<a href="/movies/<%= a_film.id %>">
+  Show details
+
+</a>
+<% end %>
+</td>

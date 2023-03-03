@@ -11,6 +11,7 @@ class DirectorsController < ApplicationController
   end
 
   def youngest
+
     render({:template => "director_templates/youngest.html.erb"})
   end
 
@@ -21,4 +22,20 @@ class DirectorsController < ApplicationController
     @filmography = Movie.where({ :director_id =>  @the_director.id })
     render({:template => "director_templates/show.html.erb"})
   end
+
+  def movies
+    render({:template => "director_templates/movies.html.erb"})
+  end
+
+
+
+  def movies_details
+    #Parameters: {"id"=>"movies"}
+    the_id_movie = params.fetch("film_id")
+    id = the_id_movie.id.to_i 
+    @the_movie = Movie.where({:id => id }).at(0)
+  
+    render({:template => "director_templates/movies.html.erb"})
+  end
+
 end
