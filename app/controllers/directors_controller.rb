@@ -38,4 +38,8 @@ class DirectorsController < ApplicationController
     render({:template => "director_templates/movies_details.html.erb"})
   end
 
+  def role
+    render({:template => "director_templates/role_details.html.erb"})
+  end
+
 end
