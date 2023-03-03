@@ -1,18 +1,62 @@
 <h1>List of all movies</h1>
 
+<dl>
 
   
-<table border="1" >
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @the_movie.title %>
+  </dd>
 
-<tr>
-<td><%= @the_movie.id %></td>
-<td>
-<img src="http://robohash.org/<%= @the_movie.title %>">
-</td>
-<td><%= @the_movie.title %></td>
-<td><%= @the_movie.year %></td>
-<td>
+  <dt>
+    Year
+  </dt>
+  <dd>
+      <%= @the_movie.year %>
+  </dd>
 
+  <dt>
+    Duration
+  </dt>
+  <dd>
+     <%= @the_movie.duration %>
+  </dd>
 
-</a>
-</td>
+  <dt>
+    Description
+  </dt>
+  <%= @the_movie.description %>
+  <dd>
+   
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="http://robohash.org/<%= @the_movie.title %>">
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+  <dd>
+ <%= @the_movie.director_id %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+   <%= time_ago_in_words(@the_movie.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+  <%= time_ago_in_words(@the_movie.updated_at) %> ago
+  </dd>
+</dl>
