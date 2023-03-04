@@ -1,18 +1,17 @@
 <h1>List of all movies</h1>
 
 
-  
 <table border="1" >
-<% @the_movie.each do |a_film| %>
+<% @the_role.each do |a_role| %>
 <tr>
-<td><%= a_film.id %></td>
+<td><%= a_role.id %></td>
 <td>
-<img src="http://robohash.org/<%= a_film.title %>">
+<img src="http://robohash.org/<%= a_role.title %>">
 </td>
-<td><%= a_film.title %></td>
-<td><%= a_film.year %></td>
+<td><%= a_role.title %></td>
+<td><%= a_role.year %></td>
 <td>
-<a href="/movies/<%= a_film.id %>">
+<a href="/movies/<%= a_role.id %>">
   Show details
 
 </a>

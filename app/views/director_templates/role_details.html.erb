@@ -1,57 +1,18 @@
-<h1>List of all actors</h1>
+<h1>Actor</h1>
 
-<hr>
+<table border="1" >
+<% @the_movie.each do |a_film| %>
+<tr>
+<td><%= a_film.id %></td>
+<td>
+<img src="http://robohash.org/<%= a_film.title %>">
+</td>
+<td><%= a_film.title %></td>
+<td><%= a_film.year %></td>
+<td>
+<a href="/movies/<%= a_film.id %>">
+  Show details
 
-<table border="1">
-  <tr>
-    <th>
-      ID
-    </th>
-
-    <th>
-      Image
-    </th>
-
-    <th>
-      Name
-    </th>
-
-    <th>
-      Dob
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <tr>
-    <td>
-      504
-    </td>
-
-    <td>
-      <img src="https://image.tmdb.org/t/p/w500/hsCu1JUzQQ4pl7uFxAVFLOs9yHh.jpg" style="width:250px;">
-    </td>
-
-    <td>
-      Tim Robbins
-    </td>
-
-    <td>
-      1958-10-16
-    </td>
-
-    <td>
-      <a href="/actors/504">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      192
-    </td>
-
-    <td>
-      <img src="https://image.tmdb.org/t/p/w500/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg" style="width:250px;">
-    </td>
+</a>
+<% end %>
+</td>

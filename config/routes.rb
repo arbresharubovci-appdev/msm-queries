@@ -7,5 +7,6 @@ get("/directors/:an_id", {:controller => "directors" , :action => "director_deta
 get("/movies",{ :controller => "directors" , :action => "movies"})
 get("/movies/:film_id" ,{ :controller => "directors" , :action => "movies_details"})
 get("/actors" ,{ :controller => "directors" , :action => "role"})
+get("/actors/:role_id" ,{ :controller => "directors" , :action => "role_details"})
 
 end

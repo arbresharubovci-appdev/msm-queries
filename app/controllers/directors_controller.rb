@@ -29,7 +29,6 @@ class DirectorsController < ApplicationController
   end
 
 
-
   def movies_details
     #Parameters: {"id"=>"movies"}
     the_id_movie = params.fetch("film_id")
@@ -39,7 +38,16 @@ class DirectorsController < ApplicationController
   end
 
   def role
+    @the_role=Actor.all
+    render({:template => "director_templates/role.html.erb"})
+  end
+
+  def role_details
+    #Parameters: {"role_id"=>"504"}
+    the_id_role = params.fetch("role_id")
+    @the_role = Actor.where({:id => the_id_role}).at(0)
     render({:template => "director_templates/role_details.html.erb"})
   end
+
 
 end
