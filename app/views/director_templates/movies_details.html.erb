@@ -42,7 +42,10 @@
     Director
   </dt>
   <dd>
- <%= @the_movie.director_id %>
+ <%#= @the_movie.director_id %>
+
+<%= Director.where({ :id =>  @the_movie.director_id}).at(0).name %>
+  
   </dd>
 
   <dt>

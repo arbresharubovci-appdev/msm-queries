@@ -9,6 +9,9 @@
 </td>
 <td><%= a_film.title %></td>
 <td><%= a_film.year %></td>
+<td><%= Director.where({ :id =>  a_film.director_id}).at(0).name %></td>
+
+
 <td>
 <a href="/movies/<%= a_film.id %>">
   Show details
