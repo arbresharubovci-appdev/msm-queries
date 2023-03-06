@@ -5,6 +5,15 @@ class DirectorsController < ApplicationController
     render({:template => "director_templates/index.html.erb"})
   end
   
+  def director_details
+    #Parameters: {"an_id"=>"42"}
+    the_id = params.fetch("an_id")
+    @the_director = Director.where({ :id =>  the_id }).at(0)
+    @filmography = Movie.where({ :director_id =>  @the_director.id })
+    render({:template => "director_templates/show.html.erb"})
+  end
+
+
   def wisest
     @oldest = Director.where.not({ :dob => nil}).order({ :dob => :asc }).at(0)
     render({:template => "director_templates/eldest.html.erb"})
@@ -15,13 +24,7 @@ class DirectorsController < ApplicationController
     render({:template => "director_templates/youngest.html.erb"})
   end
 
-  def director_details
-    #Parameters: {"an_id"=>"42"}
-    the_id = params.fetch("an_id")
-    @the_director = Director.where({ :id =>  the_id }).at(0)
-    @filmography = Movie.where({ :director_id =>  @the_director.id })
-    render({:template => "director_templates/show.html.erb"})
-  end
+
 
   def movies
     @the_movie=Movie.all
@@ -37,12 +40,17 @@ class DirectorsController < ApplicationController
   end
 
   def actors
+    @the_actors= Actor.all
     render({:template => "director_templates/actors.html.erb"})
   end
 
   def actors_details
-    
+    the_id_actors = params.fetch("role_id")
+    @the_actors = Actor.where({:id =>  the_id_actors }).at(0)
+     @filmography = Movie.where({ :director_id =>  @the_director.id })
     render({:template => "director_templates/actors_details.html.erb"})
   end
+
+
 
 end

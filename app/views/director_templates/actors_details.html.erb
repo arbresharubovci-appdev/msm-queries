@@ -1,4 +1,4 @@
-<h1>Actor #504 details</h1>
+ <h1>Actor #<%= @the_actors.id %> details</h1>
 
 <a href="/actors" class="btn btn-block btn-outline-secondary">
   Go back
@@ -6,8 +6,34 @@
 
 &nbsp;|&nbsp;
 
-<a href="/delete_actor/504" class="btn btn-block btn-outline-secondary">
-  Delete actor
-  <small>(Building this link is not required. It's an optional stretch goal; but, you have the tools if you want to give it a try.)</small>
-</a>
-<hr>
+
+
+<dl>
+  <dt>Title</dt>
+  <dd><%= @the_actors.name %></dd>
+
+  <dt>Dob</dt>
+  <dd><%= @the_actors.dob %></dd>
+
+  <dt>Bio</dt>
+  <dd><%= @the_actors.bio %></dd>
+
+  <dt>Image</dt>
+  <img src="http://robohash.org/<%= @the_actors.image %>">
+
+  <dt>Created at</dt>
+  <dd><%= time_ago_in_words(@the_actors.created_at) %> ago
+  </dd>
+
+  <dt> Updated at</dt>
+  <dd><%= time_ago_in_words(@the_actors.updated_at) %> ago</dd>
+</dl>
+
+</dl>
+
+<h2>Filmography</h2>
+
+<table border= "1">
+<% @filmography.each do | a_role | %>
+   <tr>
+   <%end%>
