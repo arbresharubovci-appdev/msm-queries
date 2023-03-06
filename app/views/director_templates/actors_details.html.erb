@@ -36,6 +36,24 @@
 <table border= "1">
 <% @filmography.each do | a_role | %>
    <tr>
-   <%end%>
+
+ <td><%= a_role.id %></td>
+  
+ <td><%= a_role.title %></td>
+    
+ <td> <%= a_role.year %></td>
+    
+ <td><% d = Director.where({ :id => a_role.director_id }).at(0)%></td>
+    
+ <td><%= d.name %></td>
+   
+ <td><a href="/actors/<%= a_role.id %>">
+    Show details 
+    </a>
+    </td>
+   </tr>
+<% end %>
+</table>
+
 
    
