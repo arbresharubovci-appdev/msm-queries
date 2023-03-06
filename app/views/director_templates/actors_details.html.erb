@@ -34,20 +34,24 @@
 <h2>Filmography</h2>
 
 <table border= "1">
-<% @filmography.each do | a_role | %>
+<% @filmography.each do | a_character | %>
    <tr>
+ <td><% m = Movie.where({ :id => a_character.movie_id }).at(0)%></td>
 
- <td><%= a_role.id %></td>
-  
- <td><%= a_role.title %></td>
+ <td><%= m.title %></td>
+
+ <td><% movie_year = Movie.where({ :id => a_character.movie_id }).at(0)%></td>
     
- <td> <%= a_role.year %></td>
+ <td> <%= movie_year.year %></td>
     
- <td><% d = Director.where({ :id => a_role.director_id }).at(0)%></td>
-    
+ <td><% d = Director.where({ :id =>  m.director_id }).at(0)%></td>
+ 
  <td><%= d.name %></td>
-   
- <td><a href="/actors/<%= a_role.id %>">
+
+<%= a_character.name%>
+
+
+   <td><a href="/actors/<%=  a_character.id %>">
     Show details 
     </a>
     </td>
